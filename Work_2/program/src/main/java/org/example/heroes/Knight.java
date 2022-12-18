@@ -8,7 +8,7 @@ public class Knight implements Hero{
     private static double attackPower = 18;
     private static double damage = 1;
 
-    public static synchronized Knight getArcher() {
+    public static synchronized Knight getKnight() {
         if (knight == null) {
             knight = new Knight();
         }
