@@ -7,6 +7,7 @@ public class Archer implements Hero{
     private static double healPoint = 450;
     private static double attackPower = 22;
     private static double damage = 1;
+    private static boolean state = true;
 
     public static synchronized Archer getArcher() {
         if (archer == null) {
@@ -17,6 +18,14 @@ public class Archer implements Hero{
 
     private Archer() {
 
+    }
+
+    public boolean returnState() {
+        if (this.healPoint <= 0) {
+            this.state = false;
+        }
+
+        return this.state;
     }
 
     @Override

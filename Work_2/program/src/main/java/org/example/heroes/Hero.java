@@ -4,4 +4,5 @@ public interface Hero {
     double dealDamage();
     void getDamage(double damage);
     void printInfo();
+    boolean returnState();
 }

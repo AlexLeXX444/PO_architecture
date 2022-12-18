@@ -4,9 +4,10 @@ public class Knight implements Hero{
     private static Knight knight;
 
     private static String className = "Knight";
-    private static double healPoint = 620;
+    private static double healPoint = 550;
     private static double attackPower = 18;
     private static double damage = 1;
+    private static boolean state = true;
 
     public static synchronized Knight getKnight() {
         if (knight == null) {
@@ -32,5 +33,14 @@ public class Knight implements Hero{
     @Override
     public void printInfo() {
         System.out.println(this.className + " -:- HP: " + this.healPoint + " -:- AP: " + this.attackPower);
+    }
+
+    @Override
+    public boolean returnState() {
+        if (this.healPoint <= 0) {
+            this.state = false;
+        }
+
+        return this.state;
     }
 }
