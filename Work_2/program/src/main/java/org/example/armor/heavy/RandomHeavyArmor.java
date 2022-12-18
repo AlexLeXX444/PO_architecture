@@ -1,15 +1,15 @@
-package org.example.armor.medium;
+package org.example.armor.heavy;
 
-public class RandomMediumArmor implements MediumArmor{
-    private static String name = "Leather armor";
+public class RandomHeavyArmor implements HeavyArmor{
+    private static String name = "Plate armor";
     private static double durability = 1;
     private static double durabilityModifier = 5;
 
-    public RandomMediumArmor() {
+    public RandomHeavyArmor() {
         int i = (int)(Math.random() * 2);
 
         if (i > 0) {
-            this.name = "Mail armor";
+            this.name = "Monolith armor";
             this.durabilityModifier = 10;
         }
     }

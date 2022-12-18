@@ -1,6 +1,9 @@
 package org.example;
 
 import org.example.Logers.BattleLogger;
+import org.example.armor.heavy.HeavyArmor;
+import org.example.armor.heavy.HeavyArmorFactory;
+import org.example.armor.heavy.RandomHeavyArmorFactory;
 import org.example.armor.medium.MediumArmor;
 import org.example.armor.medium.MediumArmorFactory;
 import org.example.armor.medium.RandomMediumArmorFactory;
@@ -35,24 +38,30 @@ public class App
         MeleeWeapon meleeWeapon = meleeWeaponFactory.createMeleeWeapon();
         System.out.print("\tArmed => ");
         meleeWeapon.printInfo();
+        HeavyArmorFactory heavyArmorFactory = new RandomHeavyArmorFactory();
+        HeavyArmor heavyArmor = heavyArmorFactory.createHeavyArmor();
+        System.out.print("\tWear => ");
+        heavyArmor.printInfo();
         int turn = (int)(Math.random() * 2);
 
         System.out.println("\n");
         while(Archer.getArcher().returnState() != false && Knight.getKnight().returnState() != false) {
             if (turn == 0) {
                 double damage = Archer.getArcher().dealDamage() + bow.getDamage();
-                Knight.getKnight().getDamage(damage);
-                BattleLogger.getBattleLogger().addStringInLog("Archer deal Knight " + damage + " damage");
+                double armor = damage / 100 * heavyArmor.getDurability();
+                Knight.getKnight().getDamage(damage - armor);
+                BattleLogger.getBattleLogger().addStringInLog("Archer deal Knight " + (damage - armor) + " damage");
                 turn = 1;
             } else if (turn == 1) {
                 double damage = Knight.getKnight().dealDamage() + meleeWeapon.getDamage();
-                Archer.getArcher().getDamage(damage);
-                BattleLogger.getBattleLogger().addStringInLog("Knight deal Archer " + damage + " damage");
+                double armor = damage / 100 * mediumArmor.getDurability();
+                Archer.getArcher().getDamage(damage - armor);
+                BattleLogger.getBattleLogger().addStringInLog("Knight deal Archer " + (damage - armor) + " damage");
                 turn = 0;
             }
         }
 
-        // BattleLogger.getBattleLogger().showFullLog();
+        BattleLogger.getBattleLogger().showFullLog();
 
         System.out.println("-----===== FINISH BATTLE =====-----");
         if (Archer.getArcher().returnState()) {
