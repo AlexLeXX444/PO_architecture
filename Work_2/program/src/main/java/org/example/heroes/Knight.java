@@ -19,14 +19,17 @@ public class Knight implements Hero{
 
     }
 
+    @Override
     public double dealDamage() {
         return damage * attackPower;
     }
 
+    @Override
     public void getDamage(double damage) {
         this.healPoint = this.healPoint - damage;
     }
 
+    @Override
     public void printInfo() {
         System.out.println(this.className + " -:- HP: " + this.healPoint + " -:- AP: " + this.attackPower);
     }
