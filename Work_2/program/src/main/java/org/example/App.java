@@ -6,6 +6,9 @@ import org.example.heroes.Knight;
 import org.example.weapon.bow.Bow;
 import org.example.weapon.bow.BowFactory;
 import org.example.weapon.bow.RandomBowFactory;
+import org.example.weapon.meelee.MeleeWeapon;
+import org.example.weapon.meelee.MeleeWeaponFactory;
+import org.example.weapon.meelee.RandomMeleeWeaponFactory;
 
 public class App
 {
@@ -21,6 +24,10 @@ public class App
         bow.printInfo();
 
         Knight.getKnight().printInfo();
+        MeleeWeaponFactory meleeWeaponFactory = new RandomMeleeWeaponFactory();
+        MeleeWeapon meleeWeapon = meleeWeaponFactory.createMeleeWeapon();
+        System.out.print("\tArmed => ");
+        meleeWeapon.printInfo();
         int turn = (int)(Math.random() * 2);
 
         System.out.println("\n");
@@ -31,8 +38,9 @@ public class App
                 BattleLogger.getBattleLogger().addStringInLog("Archer deal Knight " + damage + " damage");
                 turn = 1;
             } else if (turn == 1) {
-                Archer.getArcher().getDamage(Knight.getKnight().dealDamage());
-                BattleLogger.getBattleLogger().addStringInLog("Knight deal Archer " + 18 + " damage");
+                double damage = Knight.getKnight().dealDamage() + meleeWeapon.getDamage();
+                Archer.getArcher().getDamage(damage);
+                BattleLogger.getBattleLogger().addStringInLog("Knight deal Archer " + damage + " damage");
                 turn = 0;
             }
         }
