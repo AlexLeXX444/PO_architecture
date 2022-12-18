@@ -1,21 +1,21 @@
 package org.example.heroes;
 
-public class Archer implements Hero{
-    private static Archer archer;
+public class Knight implements Hero{
+    private static Knight knight;
 
-    private static String className = "Archer";
-    private static double healPoint = 450;
-    private static double attackPower = 22;
+    private static String className = "Knight";
+    private static double healPoint = 620;
+    private static double attackPower = 18;
     private static double damage = 1;
 
-    public static synchronized Archer getArcher() {
-        if (archer == null) {
-            archer = new Archer();
+    public static synchronized Knight getArcher() {
+        if (knight == null) {
+            knight = new Knight();
         }
-        return archer;
+        return knight;
     }
 
-    private Archer() {
+    private Knight() {
 
     }
 
