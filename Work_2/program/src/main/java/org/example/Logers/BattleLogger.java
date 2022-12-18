@@ -27,4 +27,10 @@ public class BattleLogger implements Log{
     public void showBattleLog() {
         System.out.println(this.battleLogger);
     }
+
+    @Override
+    public void showFullLog() {
+        System.out.println(logFile);
+    }
+
 }
