@@ -1,6 +1,9 @@
 package org.example;
 
 import org.example.Logers.BattleLogger;
+import org.example.armor.medium.MediumArmor;
+import org.example.armor.medium.MediumArmorFactory;
+import org.example.armor.medium.RandomMediumArmorFactory;
 import org.example.heroes.Archer;
 import org.example.heroes.Knight;
 import org.example.weapon.bow.Bow;
@@ -22,6 +25,10 @@ public class App
         Bow bow = bowFactory.createBow();
         System.out.print("\tArmed => ");
         bow.printInfo();
+        MediumArmorFactory mediumArmorFactory = new RandomMediumArmorFactory();
+        MediumArmor mediumArmor = mediumArmorFactory.createMediumArmor();
+        System.out.print("\tWear => ");
+        mediumArmor.printInfo();
 
         Knight.getKnight().printInfo();
         MeleeWeaponFactory meleeWeaponFactory = new RandomMeleeWeaponFactory();
