@@ -30,6 +30,6 @@ public class RectangleShape extends BaseShape{
 
     @Override
     public double solveArea() {
-        return shapeSides.get(0) + shapeSides.get(1);
+        return shapeSides.get(0) * shapeSides.get(1);
     }
 }
