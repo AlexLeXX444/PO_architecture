@@ -31,4 +31,9 @@ public class CircleShape extends BaseShape{
     public double solveArea() {
         return Math.PI * Math.pow(shapeSides.get(0), 2);
     }
+
+    @Override
+    public String toString() {
+        return String.format("Окружность с радиусом: [%.2f]", shapeSides.get(0));
+    }
 }

@@ -32,4 +32,9 @@ public class RectangleShape extends BaseShape{
     public double solveArea() {
         return shapeSides.get(0) * shapeSides.get(1);
     }
+
+    @Override
+    public String toString() {
+        return String.format("Прямоугольник со сторонами: [%.2f, %.2f]", shapeSides.get(0), shapeSides.get(1));
+    }
 }

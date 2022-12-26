@@ -31,4 +31,9 @@ public class SquareShape extends BaseShape {
     public double solveArea() {
         return Math.pow(shapeSides.get(0), 2);
     }
+
+    @Override
+    public String toString() {
+        return String.format("Квадрат со сторонами [%.2f]", shapeSides.get(0));
+    }
 }

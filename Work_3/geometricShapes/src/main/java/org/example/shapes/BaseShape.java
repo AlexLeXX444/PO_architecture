@@ -18,4 +18,7 @@ public abstract class BaseShape {
     public abstract double solvePerimeter();
 
     public abstract double solveArea();
+
+    @Override
+    public abstract String toString();
 }

@@ -27,8 +27,8 @@ public class TriangleShape extends BaseShape {
     @Override
     public double solvePerimeter () {
         double result = 0.0;
-        for (int i = 0; i < shapeSides.size(); i++) {
-            result += shapeSides.get(i);
+        for (Double shapeSide : shapeSides) {
+            result += shapeSide;
         }
         return result;
     }
@@ -37,5 +37,10 @@ public class TriangleShape extends BaseShape {
     public double solveArea() {
         double prePerimeter = this.solvePerimeter() / 2;
         return Math.sqrt(prePerimeter * (prePerimeter - shapeSides.get(0)) * (prePerimeter - shapeSides.get(1)) * (prePerimeter - shapeSides.get(2)));
+    }
+
+    @Override
+    public String toString() {
+        return String.format("Треугольник со сторонами [%.2f, %.2f, %.2f]", shapeSides.get(0), shapeSides.get(1), shapeSides.get(2));
     }
 }
