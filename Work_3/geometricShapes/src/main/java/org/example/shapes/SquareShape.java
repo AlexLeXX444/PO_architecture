@@ -9,7 +9,7 @@ public class SquareShape extends BaseShape {
 
     public SquareShape(double sideA) throws IsExistException {
         if (isExist(sideA)) {
-            setShapeType("triangle");
+            setShapeType("square");
             List<Double> list = new ArrayList<>();
             list.add(sideA);
             setShapeSides(list);
