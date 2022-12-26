@@ -21,12 +21,7 @@ public class TriangleShape extends BaseShape {
     }
 
     private boolean isExist (double a, double b, double c) {
-        if (a > 0 && b > 0 && c > 0) {
-            if (a < b + c && b < a + c && c < b + a) {
-                return true;
-            }
-        }
-        return false;
+        return a > 0 && b > 0 && c > 0 && a < b + c && b < a + c && c < b + a;
     }
 
     @Override
