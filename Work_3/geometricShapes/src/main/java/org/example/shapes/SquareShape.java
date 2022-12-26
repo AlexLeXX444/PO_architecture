@@ -19,10 +19,7 @@ public class SquareShape extends BaseShape {
     }
 
     private boolean isExist (double a) {
-        if (a > 0) {
-            return true;
-        }
-        return false;
+        return a > 0;
     }
 
     @Override
